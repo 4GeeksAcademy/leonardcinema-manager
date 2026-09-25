@@ -3,22 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World with Typescript</title>
+    <title>Screen One | Cinema Seat Manager</title>
   </head>
-  <body class="min-h-screen bg-slate-100 text-slate-900">
-    <main class="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6 p-6">
-      <h1 class="text-4xl font-bold tracking-tight">Hello World with Typescript</h1>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Screen One home"><span class="brand-mark">S1</span><span>Screen One</span></a>
+        <span class="session-label">BOX OFFICE / ROOM 01</span>
+      </header>
 
-      <section class="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <img
-          src="/rigo-baby.jpg"
-          alt="Hello Rigo"
-          class="h-64 w-full bg-slate-50 object-contain p-2"
-        />
-        <div class="p-5">
-          <h2 class="text-xl font-semibold text-slate-900">Hello Rigo</h2>
-          <p id="app" class="mt-2 text-sm text-slate-600"></p>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">Tonight's screening</p>
+          <h1>Seat map</h1>
+          <p class="subtitle">Tap an available seat to reserve it for the next guest.</p>
         </div>
+        <div class="screening-detail"><span class="live-dot"></span><span>Open for reservations</span><strong>20:30</strong></div>
+      </section>
+
+      <section class="workspace" aria-label="Cinema seating management">
+        <div class="map-panel">
+          <div class="panel-heading"><div><span class="eyebrow">Main hall</span><h2>Screening room</h2></div><span id="availability-label" class="availability-label"></span></div>
+          <div class="screen">SCREEN</div>
+          <div class="row-labels" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span></div>
+          <div id="seat-grid" class="seat-grid" aria-label="Seat map"></div>
+          <div class="legend"><span><i class="legend-seat available"></i> Available</span><span><i class="legend-seat occupied"></i> Occupied</span><span><i class="legend-seat selected"></i> Selected</span></div>
+        </div>
+
+        <aside class="side-panel">
+          <div><span class="eyebrow">Quick actions</span><h2>Manage seats</h2></div>
+          <div id="status-message" class="status-message status-success" role="status">Select an available seat to begin.</div>
+          <button id="confirm-button" class="primary-button" type="button" disabled>Confirm reservation</button>
+          <button id="reset-button" class="secondary-button" type="button">Reset room</button>
+          <div class="adjacent-card"><span class="eyebrow">Group seating</span><h3>Find adjacent seats</h3><p id="adjacent-message"></p></div>
+          <div class="note"><strong>Staff note</strong><span>Seat numbers run left to right. Rows are numbered from the screen.</span></div>
+        </aside>
       </section>
     </main>
     <script type="module" src="/src/main.ts"></script>
